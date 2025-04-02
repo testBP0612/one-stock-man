@@ -1,0 +1,44 @@
+# 虛擬環境
+venv/
+env/
+ENV/
+
+# Python 編譯文件
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 本地設置文件
+.env
+.env.local
+
+# 日誌文件
+*.log
+
+# 測試數據
+.coverage
+htmlcov/
+
+# VSCode 設置
+.vscode/
+*.code-workspace
+
+# PyCharm 設置
+.idea/
+
+# macOS 檔案
+.DS_Store
+
+# Windows 檔案
+Thumbs.db
+desktop.ini
+
+# 資料庫文件
+*.sqlite
+*.db
+
+# 其他
+*.swp
+.~*
