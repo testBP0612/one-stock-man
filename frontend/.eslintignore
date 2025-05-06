@@ -1,0 +1,16 @@
+# 依賴目錄
+node_modules
+.nuxt
+.output
+dist
+
+# 配置文件
+*.config.js
+*.config.ts
+
+# 日誌文件
+*.log
+
+# 其他
+.DS_Store
+coverage 
