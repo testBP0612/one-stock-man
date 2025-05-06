@@ -14,6 +14,10 @@ def validate_stock_gift_data(data: Dict[str, Any]) -> bool:
     if not data["stock_id"].isdigit():
         return False
     
+    # 檢查 gift 結構
+    if not isinstance(data["gift"], dict) or "name" not in data["gift"]:
+        return False
+    
     return True
 
 def clean_data(data: Dict[str, Any]) -> Dict[str, Any]:
@@ -21,5 +25,7 @@ def clean_data(data: Dict[str, Any]) -> Dict[str, Any]:
     return {
         "stock_id": data["stock_id"].strip(),
         "company_name": data["company_name"].strip(),
-        "gift": data["gift"].strip()
+        "gift": {
+            "name": data["gift"]["name"].strip()
+        }
     } 

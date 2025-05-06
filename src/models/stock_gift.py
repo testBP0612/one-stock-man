@@ -1,27 +1,46 @@
-from typing import Dict, Optional
+from typing import List, Dict, Optional
 from datetime import datetime
-from pydantic import BaseModel, Field, validator
+import pytz
 
-class StockGift(BaseModel):
-    """股票紀念品資料模型"""
-    stock_id: str = Field(..., description="股票代號")
-    company_name: str = Field(..., description="公司名稱")
-    gift: str = Field(..., description="紀念品")
-    year: Optional[int] = Field(None, description="年度")
-    created_at: Optional[datetime] = Field(None, description="建立時間")
+from ..config.settings import TAIPEI_TZ
 
-    @validator('stock_id')
-    def validate_stock_id(cls, v):
-        """驗證股票代號"""
-        if not v.isdigit():
-            raise ValueError("股票代號必須是數字")
-        return v
-
-    @classmethod
-    def from_dict(cls, data: Dict) -> 'StockGift':
-        """從字典建立 StockGift 實例"""
-        return cls(**data)
+class StockGift:
+    def __init__(
+        self,
+        stock_id: str,
+        company_name: str,
+        gift_name: str,
+        categories: Optional[List[str]] = None,
+        year: Optional[int] = None,
+        updated_at: Optional[datetime] = None
+    ):
+        self.stock_id = stock_id
+        self.company_name = company_name
+        self.gift = {
+            "name": gift_name,
+            "category": categories or []
+        }
+        self.year = year or datetime.now(TAIPEI_TZ).year
+        self.updated_at = updated_at or datetime.now(TAIPEI_TZ)
 
     def to_dict(self) -> Dict:
         """轉換為字典格式"""
-        return self.model_dump() 
+        return {
+            "stock_id": self.stock_id,
+            "company_name": self.company_name,
+            "gift": self.gift,
+            "year": self.year,
+            "updated_at": self.updated_at
+        }
+
+    @classmethod
+    def from_dict(cls, data: Dict) -> 'StockGift':
+        """從字典建立物件"""
+        return cls(
+            stock_id=data["stock_id"],
+            company_name=data["company_name"],
+            gift_name=data["gift"]["name"],
+            categories=data["gift"].get("category", []),
+            year=data.get("year"),
+            updated_at=data.get("updated_at")
+        ) 

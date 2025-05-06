@@ -17,6 +17,9 @@ MONGODB_COLLECTION_PREFIX = "gifts"
 # 集合名稱設定（使用當前年度）
 CURRENT_YEAR = datetime.now(TAIPEI_TZ).year
 
+# OpenAI 設定
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
 # 爬蟲設定
 SCRAPER_URL = "https://histock.tw/stock/gift.aspx"
 SCRAPER_HEADERS = {

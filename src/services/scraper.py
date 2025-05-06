@@ -75,7 +75,9 @@ class StockGiftScraper:
                     result = {
                         "stock_id": cells[0].text.strip(),
                         "company_name": cells[1].text.strip(),
-                        "gift": self.clean_gift_text(cells[gift_index].text)
+                        "gift": {
+                            "name": self.clean_gift_text(cells[gift_index].text)
+                        }
                     }
                     if validate_stock_gift_data(result):
                         results.append(clean_data(result))
