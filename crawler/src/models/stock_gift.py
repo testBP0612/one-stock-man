@@ -11,6 +11,8 @@ class StockGift:
         company_name: str,
         gift_name: str,
         categories: Optional[List[str]] = None,
+        final_buy_date: Optional[str] = None,
+        shareholders_meeting_date: Optional[str] = None,
         year: Optional[int] = None,
         updated_at: Optional[datetime] = None
     ):
@@ -18,7 +20,9 @@ class StockGift:
         self.company_name = company_name
         self.gift = {
             "name": gift_name,
-            "category": categories or []
+            "category": categories or [],
+            "final_buy_date": final_buy_date,
+            "shareholders_meeting_date": shareholders_meeting_date
         }
         self.year = year or datetime.now(TAIPEI_TZ).year
         self.updated_at = updated_at or datetime.now(TAIPEI_TZ)
@@ -36,11 +40,14 @@ class StockGift:
     @classmethod
     def from_dict(cls, data: Dict) -> 'StockGift':
         """從字典建立物件"""
+        gift_data = data["gift"]
         return cls(
             stock_id=data["stock_id"],
             company_name=data["company_name"],
-            gift_name=data["gift"]["name"],
-            categories=data["gift"].get("category", []),
+            gift_name=gift_data["name"],
+            categories=gift_data.get("category", []),
+            final_buy_date=gift_data.get("final_buy_date"),
+            shareholders_meeting_date=gift_data.get("shareholders_meeting_date"),
             year=data.get("year"),
             updated_at=data.get("updated_at")
         ) 

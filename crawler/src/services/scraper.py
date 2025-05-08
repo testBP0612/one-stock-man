@@ -42,6 +42,20 @@ class StockGiftScraper:
     def parse_table_headers(self, header_row) -> List[str]:
         """解析表格表頭"""
         return [th.text.strip() for th in header_row.find_all("th")]
+    
+    def find_final_buy_date_column_index(self, headers: List[str]) -> Optional[int]:
+        """尋找最後一次買進日欄位的索引"""
+        for i, header in enumerate(headers):
+            if "最後買進日" in header:
+                return i
+        return None
+    
+    def find_shareholders_meeting_date_column_index(self, headers: List[str]) -> Optional[int]:
+        """尋找股東會日期欄位的索引"""
+        for i, header in enumerate(headers):
+            if "股東會日期" in header:
+                return i
+        return None
 
     def find_gift_column_index(self, headers: List[str]) -> Optional[int]:
         """尋找紀念品欄位的索引"""
@@ -63,8 +77,11 @@ class StockGiftScraper:
             return results
 
         headers = self.parse_table_headers(rows[0])
+        
         gift_index = self.find_gift_column_index(headers)
-
+        final_buy_date_index = self.find_final_buy_date_column_index(headers)
+        shareholders_meeting_date_index = self.find_shareholders_meeting_date_column_index(headers)
+        
         if gift_index is None:
             return results
 
@@ -76,7 +93,9 @@ class StockGiftScraper:
                         "stock_id": cells[0].text.strip(),
                         "company_name": cells[1].text.strip(),
                         "gift": {
-                            "name": self.clean_gift_text(cells[gift_index].text)
+                            "name": self.clean_gift_text(cells[gift_index].text),
+                            "final_buy_date": cells[final_buy_date_index].text.strip() if final_buy_date_index is not None and len(cells) > final_buy_date_index else None,
+                            "shareholders_meeting_date": cells[shareholders_meeting_date_index].text.strip() if shareholders_meeting_date_index is not None and len(cells) > shareholders_meeting_date_index else None
                         }
                     }
                     if validate_stock_gift_data(result):
