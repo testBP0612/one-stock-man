@@ -27,10 +27,66 @@ export default defineNuxtConfig({
 				{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
 				{
 					name: 'description',
-					content: '探索台灣上市公司的精美股票紀念品',
+					content:
+						'探索台灣上市公司的精美股票紀念品，收藏獨特的企業文化記憶。提供最全面的股票紀念品資訊平台。',
+				},
+				{
+					name: 'keywords',
+					content: '股票紀念品,台灣上市公司,企業紀念品,收藏品,股東會紀念品',
+				},
+				{
+					name: 'author',
+					content: 'OneStockMan',
+				},
+				{
+					name: 'robots',
+					content: 'index, follow',
+				},
+				// Open Graph / Facebook
+				{
+					property: 'og:type',
+					content: 'website',
+				},
+				{
+					property: 'og:title',
+					content: '台灣公司股票紀念品資訊平台',
+				},
+				{
+					property: 'og:description',
+					content:
+						'探索台灣上市公司的精美股票紀念品，收藏獨特的企業文化記憶。提供最全面的股票紀念品資訊平台。',
+				},
+				{
+					property: 'og:image',
+					content: '/og-image.jpg',
+				},
+				{
+					property: 'og:url',
+					content: 'https://onestockman.com',
+				},
+				// Twitter
+				{
+					name: 'twitter:card',
+					content: 'summary_large_image',
+				},
+				{
+					name: 'twitter:title',
+					content: '台灣公司股票紀念品資訊平台',
+				},
+				{
+					name: 'twitter:description',
+					content:
+						'探索台灣上市公司的精美股票紀念品，收藏獨特的企業文化記憶。提供最全面的股票紀念品資訊平台。',
+				},
+				{
+					name: 'twitter:image',
+					content: '/og-image.jpg',
 				},
 			],
-			link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+			link: [
+				{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+				{ rel: 'canonical', href: 'https://onestockman.com' },
+			],
 		},
 	},
 	runtimeConfig: {
