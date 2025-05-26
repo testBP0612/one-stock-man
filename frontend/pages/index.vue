@@ -8,7 +8,7 @@
 
 <script setup>
 	useHead({
-		title: '台灣公司股票紀念品資訊平台 - 首頁',
+		title: 'OneStockMan 一股超人-台灣公司股票紀念品資訊平台 - 首頁',
 		meta: [
 			{
 				name: 'description',

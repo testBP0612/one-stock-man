@@ -21,7 +21,7 @@ export default defineNuxtConfig({
 	},
 	app: {
 		head: {
-			title: '台灣公司股票紀念品資訊平台',
+			title: 'OneStockMan 一股超人-台灣公司股票紀念品資訊平台',
 			meta: [
 				{ charset: 'utf-8' },
 				{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -49,7 +49,7 @@ export default defineNuxtConfig({
 				},
 				{
 					property: 'og:title',
-					content: '台灣公司股票紀念品資訊平台',
+					content: 'OneStockMan 一股超人-台灣公司股票紀念品資訊平台',
 				},
 				{
 					property: 'og:description',
@@ -71,7 +71,7 @@ export default defineNuxtConfig({
 				},
 				{
 					name: 'twitter:title',
-					content: '台灣公司股票紀念品資訊平台',
+					content: 'OneStockMan 一股超人-台灣公司股票紀念品資訊平台',
 				},
 				{
 					name: 'twitter:description',
