@@ -57,14 +57,14 @@
 								<div class="flex flex-1 justify-between sm:hidden">
 									<button
 										:disabled="currentPage === 1"
-										class="btn-outline"
+										class="cursor-pointer rounded-md border border-gray-300 px-3 py-1 shadow-sm"
 										@click="changePage(currentPage - 1)"
 									>
 										上一頁
 									</button>
 									<button
 										:disabled="currentPage === state.pagination.totalPages"
-										class="btn-outline ml-3"
+										class="ml-3 cursor-pointer rounded-md border border-gray-300 px-3 py-1 shadow-sm"
 										@click="changePage(currentPage + 1)"
 									>
 										下一頁
@@ -75,7 +75,7 @@
 										<span class="relative z-0 inline-flex rounded-md shadow-sm">
 											<button
 												:disabled="currentPage === 1"
-												class="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+												class="relative inline-flex cursor-pointer items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
 												@click="changePage(currentPage - 1)"
 											>
 												上一頁
@@ -95,7 +95,7 @@
 											</span>
 											<button
 												:disabled="currentPage === state.pagination.totalPages"
-												class="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+												class="relative inline-flex cursor-pointer items-center rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
 												@click="changePage(currentPage + 1)"
 											>
 												下一頁

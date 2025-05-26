@@ -103,13 +103,13 @@
 
 		<div class="mt-4 flex space-x-2">
 			<button
-				class="btn-primary flex-1"
+				class="btn-primary flex-1 rounded-md border border-gray-300 px-4 py-2 shadow-sm"
 				@click="applyFilters"
 			>
 				套用篩選
 			</button>
 			<button
-				class="btn-outline flex-1"
+				class="btn-outline flex-1 rounded-md border border-gray-300 px-4 py-2 shadow-sm"
 				@click="resetFilters"
 			>
 				重設

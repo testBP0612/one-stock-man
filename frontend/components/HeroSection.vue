@@ -30,7 +30,7 @@
 							收藏這些獨特的企業文化象徵，連結您與最喜愛的台灣企業，見證台灣經濟發展的獨特記憶。
 						</p>
 						<div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-							<div class="rounded-md shadow">
+							<div class="rounded-md">
 								<NuxtLink
 									to="/companies"
 									class="btn-primary w-full px-8 py-3 text-base font-medium"
