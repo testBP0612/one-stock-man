@@ -1,1 +1,279 @@
 @import "tailwindcss";
+
+@theme {
+  /* --- 基礎色彩值定義 --- */
+  --primary-hue: 220;
+  --primary-chroma: 0.14;
+
+  --secondary-hue: 280;
+  --secondary-chroma: 0.12;
+
+  --error-hue: 15;
+  --error-chroma: 0.20;
+
+  --neutral-chroma: 0.01;
+
+  --tag-default-chroma: 0.12; /* 標籤的預設彩度 */
+
+  /* --- 語義化顏色變量 --- */
+
+  /* 品牌主色 (Primary) */
+  --color-primary-50: oklch(98% var(--primary-chroma) 0);
+  --color-primary-100: oklch(94.5% var(--primary-chroma) 0);
+  --color-primary-200: oklch(90% var(--primary-chroma) 0);
+  --color-primary-300: oklch(82% var(--primary-chroma) 0);
+  --color-primary-400: oklch(68% var(--primary-chroma) 0);
+  --color-primary-500: oklch(65% var(--primary-chroma) var(--primary-hue));
+  --color-primary-600: oklch(55% var(--primary-chroma) var(--primary-hue));
+  --color-primary-700: oklch(48% var(--primary-chroma) var(--primary-hue));
+
+  /* 次要主色 (Secondary) */
+  --color-secondary-50: oklch(98% var(--secondary-chroma) var(--secondary-hue));
+  --color-secondary-100: oklch(94.5% var(--secondary-chroma) var(--secondary-hue));
+  --color-secondary-200: oklch(90% var(--secondary-chroma) var(--secondary-hue));
+  --color-secondary-300: oklch(82% var(--secondary-chroma) var(--secondary-hue));
+  --color-secondary-400: oklch(68% var(--secondary-chroma) var(--secondary-hue));
+  --color-secondary-500: oklch(65% var(--secondary-chroma) var(--secondary-hue));
+  --color-secondary-600: oklch(55% var(--secondary-chroma) var(--secondary-hue));
+  --color-secondary-700: oklch(48% var(--secondary-chroma) var(--secondary-hue));
+
+  /* 中性色 (Gray) */
+  --color-gray-50:  oklch(98% var(--neutral-chroma) 0);
+  --color-gray-100: oklch(94.5% var(--neutral-chroma) 0);
+  --color-gray-200: oklch(90% var(--neutral-chroma) 0);
+  --color-gray-300: oklch(82% var(--neutral-chroma) 0);
+  --color-gray-400: oklch(68% var(--neutral-chroma) 0);
+  --color-gray-500: oklch(58% var(--neutral-chroma) 0);
+  --color-gray-600: oklch(48% var(--neutral-chroma) 0);
+  --color-gray-700: oklch(38% var(--neutral-chroma) 0);
+  --color-gray-800: oklch(28% var(--neutral-chroma) 0);
+  --color-gray-900: oklch(17.5% var(--neutral-chroma) 0);
+  --color-gray-950: oklch(9% var(--neutral-chroma) 0);
+
+  /* 錯誤/警示色 (Error) */
+  --color-error-500: oklch(58% var(--error-chroma) var(--error-hue));
+
+  /* --- 分類標籤顏色 (Tag Colors) --- */
+
+  /* 1. 禮品卡 (Gift Card) - 青色系 */
+  --tag-giftcard-hue: 180;
+  --color-tag-giftcard-bg: oklch(85% var(--tag-default-chroma) var(--tag-giftcard-hue));
+  --color-tag-giftcard-text: oklch(25% var(--tag-default-chroma) var(--tag-giftcard-hue));
+
+  /* 2. 生活日用品 (Daily Necessities) - 橘色系 */
+  --tag-daily-hue: 35;
+  --color-tag-daily-bg: oklch(87% var(--tag-default-chroma) var(--tag-daily-hue));
+  --color-tag-daily-text: oklch(28% var(--tag-default-chroma) var(--tag-daily-hue));
+
+  /* 3. 食品與飲品 (Food & Beverage) - 綠色系 */
+  --tag-food-hue: 130;
+  --color-tag-food-bg: oklch(83% var(--tag-default-chroma) var(--tag-food-hue));
+  --color-tag-food-text: oklch(23% var(--tag-default-chroma) var(--tag-food-hue));
+
+  /* 4. 廚房用品 (Kitchenware) - 琥珀色系 */
+  --tag-kitchen-hue: 75;
+  --tag-kitchen-chroma: 0.10;
+  --color-tag-kitchen-bg: oklch(90% var(--tag-kitchen-chroma) var(--tag-kitchen-hue));
+  --color-tag-kitchen-text: oklch(25% var(--tag-kitchen-chroma) var(--tag-kitchen-hue));
+
+  /* 5. 電子產品與配件 (Electronics & Accessories) - 靛藍色系 */
+  --tag-electronics-hue: 260;
+  --color-tag-electronics-bg: oklch(81% var(--tag-default-chroma) var(--tag-electronics-hue));
+  --color-tag-electronics-text: oklch(20% var(--tag-default-chroma) var(--tag-electronics-hue));
+
+  /* 6. 居家用品 (Home Goods) - 玫瑰色系 */
+  --tag-home-hue: 335;
+  --tag-home-chroma: calc(var(--tag-default-chroma) * 0.9);
+  --color-tag-home-bg: oklch(85% var(--tag-home-chroma) var(--tag-home-hue));
+  --color-tag-home-text: oklch(25% var(--tag-home-chroma) var(--tag-home-hue));
+
+  /* 7. 特殊用途商品 (Special Purpose Goods) - 萊姆綠系 */
+  --tag-special-hue: 100;
+  --tag-special-chroma: 0.15;
+  --color-tag-special-bg: oklch(88% var(--tag-special-chroma) var(--tag-special-hue));
+  --color-tag-special-text: oklch(28% var(--tag-special-chroma) var(--tag-special-hue));
+
+  /* 8. 其他 (Others) - 中性紫色系 */
+  --tag-other-hue: 280;
+  --tag-other-chroma: 0.07;
+  --color-tag-other-bg: oklch(82% var(--tag-other-chroma) var(--tag-other-hue));
+  --color-tag-other-text: oklch(22% var(--tag-other-chroma) var(--tag-other-hue));
+
+  /* 基礎 UI 顏色 */
+  --color-text-base: var(--color-gray-800);
+  --color-text-muted: var(--color-gray-500);
+  --color-background: var(--color-white);
+  --color-surface: var(--color-white);
+  --color-border: var(--color-gray-200);
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+}
+
+/* 按鈕基礎樣式 */
+@layer components {
+  .card {
+    @apply bg-surface border border-border rounded-lg shadow-sm;
+  }
+
+  .tag {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+    /* 預設標籤顏色 */
+    background-color: var(--color-primary-500);
+    color: var(--color-primary-700);
+  }
+
+  /* 分類標籤顏色修飾符 */
+  .tag-giftcard {
+    background-color: var(--color-tag-giftcard-bg);
+    color: var(--color-tag-giftcard-text);
+  }
+  .tag-daily {
+    background-color: var(--color-tag-daily-bg);
+    color: var(--color-tag-daily-text);
+  }
+  .tag-food {
+    background-color: var(--color-tag-food-bg);
+    color: var(--color-tag-food-text);
+  }
+  .tag-kitchen {
+    background-color: var(--color-tag-kitchen-bg);
+    color: var(--color-tag-kitchen-text);
+  }
+  .tag-electronics {
+    background-color: var(--color-tag-electronics-bg);
+    color: var(--color-tag-electronics-text);
+  }
+  .tag-home {
+    background-color: var(--color-tag-home-bg);
+    color: var(--color-tag-home-text);
+  }
+  .tag-special {
+    background-color: var(--color-tag-special-bg);
+    color: var(--color-tag-special-text);
+  }
+  .tag-other {
+    background-color: var(--color-tag-other-bg);
+    color: var(--color-tag-other-text);
+  }
+
+  /* 基礎按鈕 */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+    /* 預設觸摸反饋 */
+    @apply hover:opacity-90 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* 按鈕尺寸變體 */
+  .btn-xs {
+    @apply px-2.5 py-1 text-xs rounded;
+  }
+  
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm rounded;
+  }
+  
+  .btn-md {
+    @apply px-4 py-2 text-sm rounded-md;
+  }
+  
+  .btn-lg {
+    @apply px-5 py-2.5 text-base rounded-md;
+  }
+  
+  .btn-xl {
+    @apply px-6 py-3 text-lg rounded-lg;
+  }
+
+  /* 主要按鈕 - 使用品牌主色 */
+  .btn-primary {
+    background-color: var(--color-primary-600);
+    color: white;
+    @apply hover:brightness-105 focus-visible:outline-primary-700 active:brightness-95;
+  }
+
+  /* 次要按鈕 - 透明底色，主色邊框和文字 */
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary-600);
+    border: 1px solid var(--color-primary-600);
+    @apply hover:bg-primary-500 focus-visible:outline-primary-600 active:bg-primary-100;
+  }
+
+  /* 灰色輔助按鈕 */
+  .btn-gray {
+    background-color: var(--color-gray-200);
+    color: var(--color-gray-700);
+    @apply hover:bg-gray-300 focus-visible:outline-gray-400 active:bg-gray-300;
+  }
+
+  /* 白色按鈕 - 適用於深色背景 */
+  .btn-white {
+    background-color: white;
+    color: var(--color-gray-800);
+    border: 1px solid var(--color-gray-200);
+    @apply hover:bg-gray-50 focus-visible:outline-gray-300 active:bg-gray-100;
+  }
+
+  /* 輪廓按鈕 - 通用輪廓樣式 */
+  .btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--color-gray-300);
+    color: var(--color-gray-700);
+    @apply hover:bg-gray-50 focus-visible:outline-gray-400 active:bg-gray-100;
+  }
+
+  /* 成功按鈕 - 綠色 */
+  .btn-success {
+    background-color: oklch(60% 0.15 150);
+    color: white;
+    @apply hover:brightness-105 focus-visible:outline-[oklch(50%_0.15_150)] active:brightness-95;
+  }
+
+  /* 警告按鈕 - 橙色 */
+  .btn-warning {
+    background-color: oklch(65% 0.18 60);
+    color: white;
+    @apply hover:brightness-105 focus-visible:outline-[oklch(55%_0.18_60)] active:brightness-95;
+  }
+
+  /* 錯誤按鈕 - 使用已定義的錯誤色 */
+  .btn-error {
+    background-color: var(--color-error-500);
+    color: white;
+    @apply hover:brightness-105 focus-visible:outline-[oklch(48%_var(--error-chroma)_var(--error-hue))] active:brightness-95;
+  }
+
+  /* 鏈接樣式按鈕 */
+  .btn-link {
+    @apply p-0 h-auto bg-transparent text-primary-600 hover:text-primary-700 hover:underline focus-visible:outline-none disabled:no-underline;
+  }
+
+  /* 圖標按鈕 */
+  .btn-icon {
+    @apply p-2 rounded-full;
+  }
+  
+  .btn-icon-sm {
+    @apply p-1.5 rounded-full;
+  }
+
+  /* 股票特定按鈕樣式 */
+  .btn-stock {
+    background-color: oklch(65% 0.12 200);
+    color: white;
+    @apply hover:brightness-105 focus-visible:outline-[oklch(55%_0.12_200)] active:brightness-95;
+  }
+
+  /* 行動呼籲按鈕 */
+  .btn-cta {
+    background-color: var(--color-primary-600);
+    color: white;
+    @apply text-base px-6 py-2.5 shadow-md hover:shadow-lg hover:brightness-105 active:shadow active:brightness-95;
+  }
+  
+  /* 具有圖標的按鈕內部間距調整 */
+  .btn-with-icon {
+    @apply inline-flex items-center gap-1.5;
+  }
+}
