@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineNuxtConfig({
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
-	modules: ['@nuxt/eslint', '@nuxtjs/google-fonts', '@pinia/nuxt'],
+	modules: ['@nuxt/eslint', '@nuxtjs/google-fonts', '@pinia/nuxt', 'nuxt-jsonld'],
 	css: ['~/assets/css/main.css'],
 	vite: {
 		plugins: [tailwindcss()],
@@ -58,7 +58,7 @@ export default defineNuxtConfig({
 				},
 				{
 					property: 'og:image',
-					content: '/og-image.jpg',
+					content: 'https://onestockman.com/og-image.jpg',
 				},
 				{
 					property: 'og:url',
@@ -80,7 +80,7 @@ export default defineNuxtConfig({
 				},
 				{
 					name: 'twitter:image',
-					content: '/og-image.jpg',
+					content: 'https://onestockman.com/og-image.jpg',
 				},
 			],
 			link: [
