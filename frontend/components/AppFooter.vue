@@ -5,10 +5,10 @@
 				<div class="md:col-span-1">
 					<div class="flex items-center">
 						<span class="font-heading text-xl font-bold text-white">OneStockMan</span>
-						<span class="ml-1 text-sm text-gray-400">台灣</span>
+						<span class="ml-1 text-sm text-gray-400">一股超人</span>
 					</div>
 					<p class="mt-2 text-sm text-gray-300">
-						探索台灣上市公司的精美股票紀念品，收藏獨特的企業文化記憶。
+						一股超人帶你探索台灣上市公司的精美股票紀念品，收藏獨特的企業文化記憶。
 					</p>
 					<div class="mt-4 flex space-x-6">
 						<a
@@ -70,7 +70,7 @@
 					<h3 class="text-sm font-semibold tracking-wider text-gray-200 uppercase">平台導覽</h3>
 					<ul class="mt-4 space-y-2">
 						<li
-							v-for="(item, index) in navigation.main"
+							v-for="(item, index) in navigation"
 							:key="index"
 						>
 							<NuxtLink
@@ -86,7 +86,7 @@
 
 			<div class="mt-8 border-t border-gray-700 pt-8">
 				<p class="text-center text-base text-gray-400">
-					&copy; {{ new Date().getFullYear() }} OneStockMan 台灣股票紀念品資訊平台. 保留所有權利.
+					&copy; {{ new Date().getFullYear() }} OneStockMan 一股超人. 保留所有權利.
 				</p>
 			</div>
 		</div>
@@ -94,10 +94,7 @@
 </template>
 
 <script setup>
-	const navigation = {
-		main: [
-			{ name: '首頁', href: '/' },
-			{ name: '公司列表', href: '/companies' },
-		],
-	};
+	import NAVIGATION from '~/config/navigation';
+
+	const navigation = NAVIGATION;
 </script>

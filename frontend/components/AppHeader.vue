@@ -81,13 +81,12 @@
 </template>
 
 <script setup>
+	import NAVIGATION from '~/config/navigation';
+
 	const route = useRoute();
 	const isOpen = ref(false);
 
-	const navItems = [
-		{ name: '首頁', href: '/' },
-		{ name: '公司列表', href: '/companies' },
-	];
+	const navItems = NAVIGATION;
 
 	watch(
 		() => route.path,
