@@ -276,4 +276,40 @@
   .btn-with-icon {
     @apply inline-flex items-center gap-1.5;
   }
+
+  /* 可復用的提示區塊 */
+  .info-block {
+    @apply my-4 p-4 rounded-lg border-l-4;
+    background-color: var(--color-secondary-50);
+    border-color: var(--color-secondary-500);
+  }
+
+  .info-block-title {
+    @apply font-semibold mb-2;
+    color: var(--color-primary-700);
+  }
+
+  .info-block-content {
+    color: var(--color-primary-600);
+  }
+
+  /* 可復用的標籤樣式 */
+  .tag-block {
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-sm font-medium;
+  }
+
+  .tag-block-primary {
+    background-color: var(--color-primary-100);
+    color: var(--color-primary-700);
+  }
+
+  .tag-block-secondary {
+    background-color: var(--color-secondary-100);
+    color: var(--color-secondary-700);
+  }
+
+  .tag-block-special {
+    background-color: var(--color-tag-special-bg);
+    color: var(--color-tag-special-text);
+  }
 }
