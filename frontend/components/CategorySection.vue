@@ -48,8 +48,8 @@
 </template>
 
 <script setup lang="ts">
-	import GIFT_CATEGORY_MAP from '@/config/category';
 	import { useCategoryCounts } from '~/composables/useCategoryCounts';
+	import GIFT_CATEGORY_MAP from '~/config/category';
 
 	const { state, fetchCounts } = useCategoryCounts();
 

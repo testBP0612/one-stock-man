@@ -1,6 +1,6 @@
 <template>
-	<div class="bg-gray-50 py-20">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+	<div class="min-h-screen bg-gray-50">
+		<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 			<div class="mb-12 text-center">
 				<h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">台灣上市公司列表</h1>
 				<p class="mx-auto mt-3 max-w-2xl text-lg text-gray-500 sm:mt-4">
@@ -167,7 +167,16 @@
 
 		Object.entries(params).forEach(([key, value]) => {
 			if (value !== undefined && value !== null && value !== '') {
-				query[key] = encodeURIComponent(String(value));
+				// 確保值已經是字串，並且只編碼一次
+				const stringValue = String(value);
+				// 檢查是否已經被編碼過
+				try {
+					decodeURIComponent(stringValue);
+					query[key] = stringValue;
+				} catch {
+					// 如果解碼失敗，表示需要編碼
+					query[key] = encodeURIComponent(stringValue);
+				}
 			} else {
 				// 使用 delete 操作符刪除屬性
 				Reflect.deleteProperty(query, key);

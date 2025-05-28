@@ -119,11 +119,13 @@
 </template>
 
 <script setup lang="ts">
+	import { useRoute } from 'vue-router';
 	import { useStockGifts } from '~/composables/useStockGifts';
 	import GIFT_CATEGORY_MAP from '~/config/category';
 
 	const emit = defineEmits(['filter']);
-	const { updateFilters } = useStockGifts();
+	const { updateFilters, state } = useStockGifts();
+	const route = useRoute();
 	const searchQuery = ref('');
 	const selectedCategory = ref('');
 	const filters = reactive({
@@ -131,6 +133,31 @@
 	});
 
 	const categories = Object.keys(GIFT_CATEGORY_MAP);
+
+	// 從 URL 初始化篩選條件
+	onMounted(() => {
+		const { search, category, canBuy } = route.query;
+
+		if (search) {
+			try {
+				searchQuery.value = decodeURIComponent(search as string);
+			} catch (e) {
+				searchQuery.value = search as string;
+			}
+		}
+
+		if (category) {
+			try {
+				selectedCategory.value = decodeURIComponent(category as string);
+			} catch (e) {
+				selectedCategory.value = category as string;
+			}
+		}
+
+		if (canBuy === 'true') {
+			filters.canBuy = true;
+		}
+	});
 
 	const applyFilters = () => {
 		const filterParams = {
